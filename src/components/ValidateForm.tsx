@@ -6,12 +6,12 @@ interface User {
     password: string;
 }
 
-function LoginForm() {
+function RegisterForm() {
     const [user, setUser] = useState<User>({ email: "", password: "" });
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         try {
-            const response = await fetch("api/post-user", {
+            const response = await fetch("api/validate-user", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
@@ -19,9 +19,9 @@ function LoginForm() {
                 body: JSON.stringify(user)
             });
             if (!response.ok) {
-                throw new Error("Failed to create user...");
+                throw new Error("Failed to validate user...");
             }
-            console.log("User creted successfully!" + JSON.stringify(response));
+            console.log("User validated successfully!" + JSON.stringify(response));
         }
         catch (error) {
             console.error(error);
@@ -45,6 +45,6 @@ function LoginForm() {
     );
 }
 
-export default LoginForm;
+export default RegisterForm;
 
 
