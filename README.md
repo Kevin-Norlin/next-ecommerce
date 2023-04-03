@@ -38,9 +38,8 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
 
 
-This project uses the following libs: 
+## This project uses the following libraries: 
 - Nextjs
 - React
-- SCSS
 - Mongoose with mongoDB
 - Bcrypt
