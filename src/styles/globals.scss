@@ -1,0 +1,224 @@
+$main-background: #ececec;
+$secondbackground: #385170;
+$headlines-color: #142d4c;
+$border-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+$battleship-gray: #848c8eff;
+$main-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+$main-shadow-no-top: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+$logo-color: #519872;
+$footercolor: #D7D9D7;
+
+@mixin flexStetup($direction, $justify-content, $align-items, $wrap) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify-content;
+  align-items: $align-items;
+  flex-wrap: $wrap;
+
+}
+
+.App {
+  @include flexStetup(column, baseline, center, auto);
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  min-height: 100vh;
+  background: var(--main-background);
+  font-family: 'Montserrat', sans-serif;
+  overflow-x: hidden;
+}
+
+.Pages {
+  
+  @include flexStetup(column, baseline, center, auto);
+  
+  width: 100vw;
+  min-height: 100vh;
+  max-height: fit-content;
+
+  img {
+    max-width: 100%;
+
+  }
+
+  h1 {
+    color: $logo-color;
+    
+
+
+  }
+  
+
+}
+
+
+.Header {
+  @include flexStetup(column, center, auto, wrap);
+  background: $main-background;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: 10vh;
+  z-index: 1;
+
+  transition: all 0.5s;
+
+  &:hover {
+    box-shadow: $main-shadow;
+
+  }
+
+  .Header-elem1 {
+    @include flexStetup(column, center, auto, wrap);
+
+    color: $logo-color;
+    width: 30vh;
+    height: 100%;
+
+
+
+
+    & h1 {
+      margin-right: auto;
+      padding-left: 4vh;
+      
+
+
+    }
+
+  }
+
+  .Header-elem2 {
+    @include flexStetup(row, space-evenly, center, nowrap);
+    width: 30vh;
+    height: 100vh;
+    margin-left: auto;
+
+    button {
+      box-sizing: border-box;
+    }
+
+  }
+
+
+
+
+
+}
+
+.NavBar {
+  @include flexStetup(column, center, center, wrap);
+  position: absolute;
+  box-sizing: border-box;
+  row-gap: 2vh;
+  background-color: $main-background;
+  right: 0;
+  top: 0;
+  height: 100%;
+  width: 30vh;
+  box-shadow: $main-shadow;
+
+  overflow: hidden;
+  z-index: 1;
+
+  & .NavBar-link {
+    width: 100%;
+    font-size: xx-large;
+    text-align: center;
+    color: #333;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: all 0.5s;
+    border: border-box;
+   
+
+  }
+}
+
+.Footer {
+  @include flexStetup(column, center, center, wrap);
+  position:relative;
+  background: $main-background;
+  width: 100%;
+  bottom: 0;
+  margin-top: 100px;
+  
+}
+
+.Product {
+  @include flexStetup(column, center, center, wrap);
+  background-color: white;
+  margin: 10px;
+  padding: 0;
+  width: 25vh;
+  height: 25vh;
+  box-sizing: border-box;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+
+  & img {
+    padding: 0;
+    margin: 0;
+    max-width: 200px;
+    max-height: 200px;
+  }
+}
+
+.Showcase-products {
+  @include flexStetup(row, space-evenly, center, wrap);
+ 
+  width: 100vw;
+  padding: 0;
+  margin: 0;
+
+
+}
+
+.Showcase {
+  @include flexStetup(column, space-evenly, center, wrap);
+  background: $main-background;
+  width: 100vw;
+  height: 50vh;
+  h1 {
+    font-size: 3rem !important;
+    color: black !important;
+  }
+  
+}
+
+.height-filler {
+  height: 400px;
+}
+
+#Home {
+  h1 {
+    font-size: 4rem;
+    color: $logo-color;
+  }
+}
+
+.TextHomePage {
+  @include flexStetup(row,space-evenly, center, wrap);
+  column-gap: 22vw;
+  margin-top: 2vh;
+  margin-bottom: 10vh;
+  width: 100vw;
+  img {
+    margin-top: 20vh;
+    padding-right: 10vw;
+  }
+  
+  
+}
+
+.Cart {
+  position: absolute;
+  top: 11vh;
+  right: 0;
+  background-color: $main-background ;
+  height:fit-content;
+  min-height: 80vh;
+  box-shadow: $main-shadow-no-top;
+  width: 40vw;
+  z-index: 1;
+
+}
