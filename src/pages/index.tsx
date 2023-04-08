@@ -8,7 +8,9 @@ import AnimationTest from '@/components/AnimationTest';
 
 import { GetServerSideProps } from 'next'
 import { GlobalContext, GlobalProvider } from '@/hooks/context/global';
-import { useState } from 'react';
+import { useCallback, useContext, useState } from 'react';
+import { NavBar } from '@/components/NavBar';
+import { Header } from '@/components/Header';
 
 
 
@@ -17,14 +19,17 @@ import { useState } from 'react';
 
 
 export default function Home() {
-  
+  const {toggleNavBar} = useContext(GlobalContext);
   return (
     <>
       
       <main>
-        <div> 
-         
-        </div>
+        <div className='Index'>
+       
+          <Header />
+         <NavBar />
+         <button onClick={toggleNavBar}></button>
+         </div>
       </main>
     </>
   )

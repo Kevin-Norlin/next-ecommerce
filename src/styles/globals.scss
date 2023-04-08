@@ -16,18 +16,28 @@ $footercolor: #D7D9D7;
   flex-wrap: $wrap;
 
 }
+main {
+  width: 100%;
+  height: 100%;
+}
 
 .App {
+  background-color: green;
   @include flexStetup(column, baseline, center, auto);
   margin: 0;
   padding: 0;
   width: 100vw;
-  min-height: 100vh;
+  min-height: 1000px;
   background: var(--main-background);
   font-family: 'Montserrat', sans-serif;
   overflow-x: hidden;
 }
 
+.Index {
+  background-color: red;
+  width: 100vw;
+  height: 100%;
+}
 .Pages {
   
   @include flexStetup(column, baseline, center, auto);
