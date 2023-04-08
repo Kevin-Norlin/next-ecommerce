@@ -22,4 +22,4 @@ export default function App({ Component, pageProps }: AppProps) {
     </div>
   );
 }
-// GlobalProvider aint right...
+// GlobalProvider aint right... i think it works though
