@@ -24,11 +24,11 @@ export default function Home() {
     <>
       
       <main>
-        <div className='Index'>
-       
+        <div className="flex flex-col flex-wrap justify-baseline items-center min-h-screen max-h-max w-screen bg-main overflow-x-hidden">
+
           <Header />
          <NavBar />
-         <button onClick={toggleNavBar}></button>
+         
          </div>
       </main>
     </>

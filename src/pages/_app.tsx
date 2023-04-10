@@ -8,7 +8,7 @@ const inter = Inter({ subsets: ['latin'] });
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <div className="App">
+    <div className="overflow-hidden">
       <Head>
         <title>Ecommerce</title>
         <meta name="description" content="Eccomerce site built using NextJS" />
