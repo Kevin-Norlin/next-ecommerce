@@ -13,6 +13,7 @@ import { NavBar } from '@/components/NavBar';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 import { FrameWorks } from '@/components/Frameworks';
+import { Showcase} from '@/components/Showcase';
 
 
 
@@ -21,7 +22,7 @@ import { FrameWorks } from '@/components/Frameworks';
 
 
 
-export default function Index() {
+export default function Index(props: any) {
   const { toggleNavBar } = useContext(GlobalContext);
   return (
     <>
@@ -32,6 +33,7 @@ export default function Index() {
           <h1 >This is an e-shop.</h1>
           <h1>Buy Something..</h1>
           </div>
+          <Showcase products={props.products}/>
         </div>
 
         <div className=" flex items-start jusify-center flex-col gap-40 ">
@@ -42,4 +44,16 @@ export default function Index() {
       </main>
     </>
   )
+}
+export async function getServerSideProps() {
+  try {
+    const res = await fetch("http://localhost:3000/api/getAll-product");
+      const products = await res.json();
+      return { props: { products } };
+  }
+  catch (error) {
+      console.error(error);
+      return { props: {products: []}}
+  }
+
 }
