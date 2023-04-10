@@ -11,6 +11,8 @@ import { GlobalContext, GlobalProvider } from '@/hooks/context/global';
 import { useCallback, useContext, useState } from 'react';
 import { NavBar } from '@/components/NavBar';
 import { Header } from '@/components/Header';
+import { Footer } from '@/components/Footer';
+import { FrameWorks } from '@/components/Frameworks';
 
 
 
@@ -18,18 +20,25 @@ import { Header } from '@/components/Header';
 
 
 
-export default function Home() {
-  const {toggleNavBar} = useContext(GlobalContext);
+
+export default function Index() {
+  const { toggleNavBar } = useContext(GlobalContext);
   return (
     <>
-      
-      <main>
-        <div className="flex flex-col flex-wrap justify-baseline items-center min-h-screen max-h-max w-screen bg-main overflow-x-hidden">
 
-          <Header />
-         <NavBar />
-         
-         </div>
+      <main className="flex items-center justify-baseline pt-20 flex-col gap-40 min-h-screen w-screen ">
+        <div className="">
+          <div className="text-8xl font-extrabold text-logo">
+          <h1 >This is an e-shop.</h1>
+          <h1>Buy Something..</h1>
+          </div>
+        </div>
+
+        <div className=" flex items-start jusify-center flex-col gap-40 ">
+          <h1 className="font-bold text-6xl"> </h1>
+          <FrameWorks />
+        </div>
+        
       </main>
     </>
   )

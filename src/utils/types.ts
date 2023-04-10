@@ -13,3 +13,10 @@ export interface ResponseFuncs {
     password: string;
     roles: [string];
   }
+
+  export interface ProductType {
+    name: string,
+    imgUrl: string,
+    desc: string,
+    inStock: boolean
+  }
