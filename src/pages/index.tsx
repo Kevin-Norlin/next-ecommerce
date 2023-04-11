@@ -27,8 +27,8 @@ export default function Index(props: any) {
   return (
     <>
 
-      <main className="flex items-center justify-baseline pt-20 flex-col gap-40 min-h-screen w-screen ">
-        <div className="">
+      <main className="flex items-center justify-baseline pt-20 flex-col gap-40  min-h-screen w-screen ">
+        <div className="flex items-center jusitfy-baseline flex-col gap-40 flex-wrap ">
           <div className="text-8xl font-extrabold text-logo">
           <h1 >This is an e-shop.</h1>
           <h1>Buy Something..</h1>

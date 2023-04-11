@@ -1,7 +1,7 @@
 import { SiTypescript, SiHtml5, SiNextdotjs, SiReact, SiTailwindcss, SiMongodb } from "react-icons/si";
 export const FrameWorks = () => {
     return (
-        <div className="flex flex-row gap-24">
+        <div className="flex flex-row gap-24 flex-wrap">
 
         <SiHtml5 size="100" color="red" />
         <SiTypescript size="100" color="33658a" />

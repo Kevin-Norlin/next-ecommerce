@@ -8,7 +8,7 @@ interface ShowcaseProps {
   
 export const Showcase: React.FC<ShowcaseProps> = ({ products }) => {
     return (
-        <div>
+        <div className="flex justify-center items-center gap-20 flex-wrap w-screen">
             {products.map((item: ProductType, index: number) => (
                 <Product name={item.name} imgUrl={item.imgUrl} desc={item.desc} inStock={item.inStock} />
             ))}

@@ -8,7 +8,7 @@ import { FaBars, FaShoppingCart } from "react-icons/fa";
 export const Header = () => {
     const { name, toggleNavBar, toggleCart} = useContext(GlobalContext);
     return (
-        <div className="flex flex-row justify-between items-center mx-auto px-20 sticky top-0 
+        <div className="flex flex-row justify-between items-center flex-wrap mx-auto px-20 sticky top-0 
                         bg-inherit w-screen h-24 
                         hover:shadow-lg duration-300">
             <div className="">
