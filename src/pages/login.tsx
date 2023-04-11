@@ -4,11 +4,13 @@ import CreateProduct from "@/components/CreateProduct";
 export default function login() {
     return (
         <>
-        <div>
-            <div>
+        <div className="flex items-center justify-baseline flex-col w-screen h-screen gap-20 text-logo text-center">
+            <div className="flex items-center w-3/5 justify-between text-center shadow-xl">
+            <h1 className="font-bold text-6xl text-center w-96 ">Create a user!</h1>
                 <RegisterForm />
             </div>
-            <div>
+            <div className="flex items-center w-3/5 justify-between text-center shadow-xl">
+            <h1 className="font-bold text-6xl text-center w-96  ">Log in!</h1>
                 <ValidateForm />
             </div>
             <div>
