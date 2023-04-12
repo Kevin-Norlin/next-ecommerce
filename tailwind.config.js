@@ -13,8 +13,9 @@ module.exports = {
     extend: {
       colors: {
         main: "#ececec",
-        logo: "#519872;",
-        footer: "#D7D9D7"
+        logo: "#33658a",
+        footer: "slate-500",
+        nextjsc: "758E4f"
       }
     },
   },

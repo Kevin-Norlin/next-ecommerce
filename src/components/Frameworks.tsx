@@ -6,9 +6,9 @@ export const FrameWorks = () => {
         <SiHtml5 size="100" color="red" />
         <SiTypescript size="100" color="33658a" />
         <SiReact size="100" color="86bbd8" />
-        <SiNextdotjs size="100" color="758E4F" />
+        <SiNextdotjs size="100" color="758E4f" />
         <SiTailwindcss size="100" color="86bbd8" />
-        <SiMongodb size="100" color="758E4F" />
+        <SiMongodb size="100" color="green" />
       </div>
     )
 }

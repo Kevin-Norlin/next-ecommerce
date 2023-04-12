@@ -10,7 +10,9 @@ export const Showcase: React.FC<ShowcaseProps> = ({ products }) => {
     return (
         <div className="flex justify-center items-center gap-20 flex-wrap w-screen">
             {products.map((item: ProductType, index: number) => (
+                <div key= {index}>
                 <Product name={item.name} imgUrl={item.imgUrl} desc={item.desc} inStock={item.inStock} />
+                </div>
             ))}
         </div>
     )
