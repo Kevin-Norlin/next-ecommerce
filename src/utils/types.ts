@@ -9,6 +9,7 @@ export interface ResponseFuncs {
   // Interface to define User model on the frontend
   export interface UserType {
     _id?: number;
+    name: string;
     email: string;
     password: string;
     roles: [string];
