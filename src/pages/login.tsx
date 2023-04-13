@@ -1,6 +1,6 @@
-import RegisterForm from "@/components/RegisterForm";
-import ValidateForm from "@/components/ValidateForm";
-import CreateProduct from "@/components/CreateProduct";
+import RegisterForm from "@/components/form/RegisterForm";
+import ValidateForm from "@/components/form/ValidateForm";
+import CreateProduct from "@/components/form/CreateProduct";
 export default function login() {
     return (
         <>

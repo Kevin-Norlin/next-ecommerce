@@ -2,18 +2,18 @@ import Head from 'next/head'
 import Image from 'next/image'
 import { Inter } from 'next/font/google'
 
-import RegisterForm from '@/components/RegisterForm'
-import ValidateForm from "@/components/ValidateForm";
+import RegisterForm from '@/components/form/RegisterForm'
+import ValidateForm from "@/components/form/ValidateForm";
 import AnimationTest from '@/components/AnimationTest';
 
 import { GetServerSideProps } from 'next'
 import { GlobalContext, GlobalProvider } from '@/hooks/context/global';
 import { useCallback, useContext, useState } from 'react';
-import { NavBar } from '@/components/NavBar';
-import { Header } from '@/components/Header';
-import { Footer } from '@/components/Footer';
-import { FrameWorks } from '@/components/Frameworks';
-import { Showcase} from '@/components/Showcase';
+import { NavBar } from '@/components/layout/NavBar';
+import { Header } from '@/components/layout/Header';
+import { Footer } from '@/components/layout/Footer';
+import { FrameWorks } from '@/components/pageComponents/Frameworks';
+import { Showcase} from '@/components/pageComponents/Showcase';
 
 
 

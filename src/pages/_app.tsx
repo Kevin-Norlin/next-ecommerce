@@ -3,9 +3,9 @@ import type { AppProps } from 'next/app';
 import Head from 'next/head';
 import { Inter } from 'next/font/google';
 import { GlobalProvider } from '@/hooks/context/global';
-import { Header } from '@/components/Header';
-import { NavBar } from '@/components/NavBar';
-import { Footer } from '@/components/Footer';
+import { Header } from '@/components/layout/Header';
+import { NavBar } from '@/components/layout/NavBar';
+import { Footer } from '@/components/layout/Footer';
 
 const inter = Inter({ subsets: ['latin'] });
 

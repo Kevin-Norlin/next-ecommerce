@@ -1,6 +1,6 @@
 import React from "react";
 import { ProductType } from "@/utils/types";
-import { Product } from "./Product";
+import { Product } from "../product/Product";
 
 interface ShowcaseProps {
     products: ProductType[];
