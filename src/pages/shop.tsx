@@ -1,29 +1,9 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import { Inter } from 'next/font/google'
-
-import RegisterForm from '@/components/form/RegisterForm'
-import ValidateForm from "@/components/form/ValidateForm";
-import AnimationTest from '@/components/AnimationTest';
-
-import { GetServerSideProps } from 'next'
-import { GlobalContext, GlobalProvider } from '@/hooks/context/global';
-import { useCallback, useContext, useState } from 'react';
-import { NavBar } from '@/components/layout/NavBar';
-import { Header } from '@/components/layout/Header';
-import { Footer } from '@/components/layout/Footer';
 import { FrameWorks } from '@/components/pageComponents/Frameworks';
 import { Products} from '@/components/pageComponents/Products';
 
 
-
-
-
-
-
-
 export default function Index(props: any) {
-  const { toggleNavBar } = useContext(GlobalContext);
+
   return (
     <>
 

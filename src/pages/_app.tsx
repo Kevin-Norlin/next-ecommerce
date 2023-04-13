@@ -11,7 +11,7 @@ const inter = Inter({ subsets: ['latin'] });
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <div className="overflow-hidden">
+    <div >
       <Head>
         <title>Ecommerce</title>
         <meta name="description" content="Eccomerce site built using NextJS" />
@@ -20,7 +20,7 @@ export default function App({ Component, pageProps }: AppProps) {
       </Head>
 
       <GlobalProvider>
-        <div className="flex flex-col flex-wrap justify-baseline items-center min-h-screen max-h-max w-screen bg-main overflow-x-hidden">
+        <div className="flex  flex-col flex-wrap justify-baseline items-center min-h-screen max-h-max w-screen bg-main ">
 
           <Header />
           <NavBar />

@@ -18,21 +18,20 @@ export const NavBar = () => {
         }
     })
     return (
-        <AnimatePresence>
+        <div>
            {showNavBar &&  (
                 
         <motion.div
-        initial={{x:"100vh"}} 
+        initial={{x:"100vw"}} 
         animate={{x:0}} 
-        exit={{x:"100vh", transition: {duration: 0.5} }} 
+        exit={{x:"100vw", transition: {duration: 0.5} }} 
         transition={{type: "spring", duration:0.5}}
         
-        className="flex flex-col justify-baseline pt-20 items-center gap-10 right-0 top-0 z-10 h-screen w-auto  absolute 
-                   shadow-xl text-logo text-4xl font-bold bg-inherit">
+        className=" fixed top-0 right-0 z-20 flex flex-col justify-baseline items-center gap-10 h-screen w-auto shadow-xl text-logo text-4xl font-bold bg-main pt-20">
             <FaTimes className="right-2 top-2 absolute bg-red hover:cursor-pointer"onClick={toggleNavBar} />
 
             <div className="flex flex-col justify-baseline p-20 items-center gap-10 right-0 h-screen w-full 
-                   shadow-xl text-logo text-4xl font-bold">
+                            shadow-xl text-logo text-4xl font-bold">
             <Link href="/" className="NavBar-link" onClick={toggleNavBar}> Home </Link>
             <Link href="/login" className="NavBar-link" onClick={toggleNavBar}> Log in </Link>
             <Link href="/myaccount" className="NavBar-link" onClick={toggleNavBar}> My Account</Link>
@@ -40,6 +39,7 @@ export const NavBar = () => {
             </div>
         </motion.div>
             )}
-        </AnimatePresence>
+            </div>
+        
     );
 };

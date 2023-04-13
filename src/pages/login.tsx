@@ -1,7 +1,7 @@
 import RegisterForm from "@/components/form/RegisterForm";
 import ValidateForm from "@/components/form/ValidateForm";
 import CreateProduct from "@/components/form/CreateProduct";
-export default function login() {
+export default function Login() {
     return (
         <>
         <div className="flex items-center justify-baseline flex-col w-screen h-screen gap-20 text-logo text-center">

@@ -1,5 +1,5 @@
 
-import { createContext, useContext, useState } from "react";
+import { createContext, useState } from "react";
 
 interface GlobalContextI {
     name: string;

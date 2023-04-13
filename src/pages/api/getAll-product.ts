@@ -7,7 +7,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     if (req.method === "GET") {
         try {
             await connect();
-            const products = await ProductModel.find();
+            const products : ProductType[] = await ProductModel.find();
             res.status(200).json(products);
         }
         catch (error) {

@@ -1,6 +1,6 @@
 import { GlobalContext } from "@/hooks/context/global";
 import { NavBar } from "./NavBar";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { FaBars, FaShoppingCart } from "react-icons/fa";
 
 
@@ -8,9 +8,10 @@ import { FaBars, FaShoppingCart } from "react-icons/fa";
 export const Header = () => {
     const { name, toggleNavBar, toggleCart} = useContext(GlobalContext);
     return (
+        
         <div className="flex flex-row justify-between items-center flex-wrap mx-auto px-20 sticky top-0 
                         bg-inherit w-screen h-24 
-                        hover:shadow-lg duration-300">
+                        hover:shadow-lg duration-300 z-10">
             <div className="">
                 <h1 className="text-logo text-4xl font-bold">E-commerce</h1>
             </div>
@@ -22,5 +23,6 @@ export const Header = () => {
                 
             </div>
         </div>
+        
     );
 }
