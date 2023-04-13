@@ -19,5 +19,5 @@ export interface ResponseFuncs {
     imgUrl: string,
     desc: string,
     inStock: boolean,
-    isShowCase: boolean
+    isShowcase: boolean
   }

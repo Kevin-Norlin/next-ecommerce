@@ -1,37 +1,32 @@
 "use client";
 import { useState } from "react";
 import { ProductType } from "@/utils/types";
-import { Checkbox } from "../ui/Checkbox";
+
 
 function RegisterForm() {
-    const [product, setProduct] = useState<ProductType>({ name: "", imgUrl: "", desc: "", inStock: true, isShowCase: true });
-    const [checkedStock, setCheckedStock] = useState(false);
-    const [checkedShowcase, setChekcedShowcase] = useState(false);
-    const toggleCheckedStock = () => {setCheckedStock(!checkedStock)};
-    const toggleCheckedShowcase = () => {setChekcedShowcase(!checkedShowcase)};
-    
+    const [product, setProduct] = useState<ProductType>({ name: "", imgUrl: "", desc: "", inStock: true, isShowcase: true });
     return (
         <form onSubmit={(e) => handleSubmit(e, product)}>
-            <label>
+            <div>
                 Name:
                 <input type="text" value={product.name} onChange={(event) => setProduct({ ...product, name: event.target.value })} />
-            </label>
-            <label>
+            </div>
+            <div>
                 Description:
                 <input type="text" value={product.desc} onChange={(event) => setProduct({ ...product, desc: event.target.value })} />
-            </label>
-            <label>
+            </div>
+            <div>
                 Img-url:
                 <input type="text" value={product.imgUrl} onChange={(event) => setProduct({ ...product, imgUrl: event.target.value })} />
-            </label>
-            <h1> In stock? </h1>
-            <Checkbox checked={checkedStock} toggleChecked={toggleCheckedStock} />
-            <h1> Showcase? </h1>
-            <Checkbox checked={checkedShowcase} toggleChecked={toggleCheckedShowcase} />
-          
-
-
-
+            </div>
+            <div>
+                <h1> In stock? </h1>
+                <input type="checkbox" checked={product.inStock} onChange={(event) => setProduct({ ...product, inStock: event.target.checked })} />
+            </div>
+            <div>
+                <h1> Showcase? </h1>
+                <input type="checkbox" checked={product.isShowcase} onChange={(event) => setProduct({ ...product, isShowcase: event.target.checked })} />
+            </div>
             <button type="submit">Create User</button>
         </form>
     );
@@ -57,6 +52,7 @@ async function handleSubmit(e: React.FormEvent<HTMLFormElement>, product: Produc
     }
 
 }
+
 
 
 

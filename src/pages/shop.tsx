@@ -13,7 +13,7 @@ import { NavBar } from '@/components/layout/NavBar';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { FrameWorks } from '@/components/pageComponents/Frameworks';
-import { Showcase} from '@/components/pageComponents/Showcase';
+import { Products} from '@/components/pageComponents/Products';
 
 
 
@@ -33,7 +33,7 @@ export default function Index(props: any) {
           <h1 >Buy, buy, buy</h1>
           
           </div>
-          <Showcase products={props.products}/>
+          <Products products={props.products}/>
         </div>
 
         <div className=" flex items-start jusify-center flex-col gap-40 ">

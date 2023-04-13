@@ -1,4 +1,4 @@
-import mongoose, { Model } from "mongoose";
+import mongoose from "mongoose";
 
 
 const ProductSchema = new mongoose.Schema({
@@ -6,7 +6,7 @@ const ProductSchema = new mongoose.Schema({
     imgUrl: String,
     desc: String,
     inStock: Boolean,
-    isShowCase: Boolean
+    isShowcase: Boolean
   });
   
 export const ProductModel = mongoose.models.Product || mongoose.model('Product', ProductSchema);

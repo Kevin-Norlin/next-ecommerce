@@ -4,8 +4,13 @@ import mongoose from "mongoose";
 const { MONGODB_URI } = process.env;
 
 export const connect = async () => {
-    const conn = await mongoose
-        .connect(MONGODB_URI as string)
-        .catch(err => console.log(err))
-    console.log("Mongoose Connection Successful!")
+    try {
+        const conn = await mongoose;
+        conn.connect(MONGODB_URI as string);
+        console.log("Mongoose Connection Successful!");
+    }
+    catch (error) {
+        console.error(error);
+    }
+
 }
