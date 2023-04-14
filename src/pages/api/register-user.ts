@@ -1,5 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
-import type { UserType } from "../../utils/types";
+import type { UserType } from "../../utils/types/generalTypes";
 import { connect } from "../../utils/connection";
 import { UserModel } from "../../models/User";
 import bcrypt from "bcrypt";

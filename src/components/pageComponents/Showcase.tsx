@@ -1,5 +1,5 @@
 import React from "react";
-import { ProductType } from "@/utils/types";
+import { ProductType } from "@/utils/types/generalTypes";
 import { Product } from "../product/Product";
 
 interface ShowcaseProps {

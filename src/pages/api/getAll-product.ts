@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { connect } from "../../utils/connection";
-import { ProductType } from '@/utils/types';
+import { ProductType } from '@/utils/types/generalTypes';
 import { ProductModel } from "../../models/Product";
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {

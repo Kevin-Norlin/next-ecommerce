@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import { IoIosCreate } from "react-icons/io";
-import { UserType } from "@/utils/types";
+import { UserType } from "@/utils/types/generalTypes";
 
 
 function RegisterForm() {

@@ -15,10 +15,3 @@ export interface ResponseFuncs {
     roles: [string];
   }
 
-  export interface ProductType {
-    name: string,
-    imgUrl: string,
-    desc: string,
-    inStock: boolean,
-    isShowcase: boolean
-  }

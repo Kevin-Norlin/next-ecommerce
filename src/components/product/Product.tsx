@@ -1,4 +1,4 @@
-import { ProductType } from "@/utils/types";
+import { ProductType } from "@/utils/types/generalTypes";
 import Image from 'next/image';
 import {BsFillBoxSeamFill} from "react-icons/bs";
 export const Product : React.FC<ProductType> = (props) => {

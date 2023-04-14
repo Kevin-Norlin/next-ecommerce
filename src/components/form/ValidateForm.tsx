@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import { IoIosLogIn } from "react-icons/io";
-import { UserType } from "@/utils/types";
+import { UserType } from "@/utils/types/generalTypes";
 
 function RegisterForm() {
     const [user, setUser] = useState<UserType>({ name: "", email: "", password: "", roles: ["default"] });

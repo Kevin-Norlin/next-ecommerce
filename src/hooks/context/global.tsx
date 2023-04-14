@@ -1,6 +1,6 @@
 
 import { createContext, useState } from "react";
-import { UserType } from "@/utils/types";
+import { UserType } from "@/utils/types/generalTypes";
 
 interface GlobalContextI {
     user: UserType;
