@@ -11,7 +11,7 @@ export const Header = () => {
         
         <div className="flex flex-row justify-between items-center flex-wrap mx-auto px-20 sticky top-0 
                         bg-inherit w-screen h-24 
-                        hover:shadow-lg duration-300 z-10">
+                        hover:shadow-lg duration-300 z-20">
             <div className="">
                 <h1 className="text-logo text-4xl font-bold">E-commerce</h1>
             </div>
