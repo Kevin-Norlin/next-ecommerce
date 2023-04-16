@@ -7,36 +7,36 @@ import { Input } from "../ui/Input";
 
 function AddProductForm() {
     const [productType, setProductType] = useState("");
-    const [product, setProduct] = useState<ProductType>({ name: "", imgUrl: "", desc: "", stock: 0, isShowcase: false, type: "Keyboard", typeSpecific: {connection: "USB", wireless:false, switches: "MX brown"} });
+    const [product, setProduct] = useState<ProductType>({ name: "", imgUrl: "", desc: "", stock: 0, isShowcase: false, type: "Keyboard", typeSpecific: { connection: "USB", wireless: false, switches: "MX brown" } as ProductType_Keyboard });
     return (
-        <form className="w-full max-w-sm " onSubmit={(e) => handleSubmit(e,product)}>
+        <form className="w-full max-w-sm " onSubmit={(e) => handleSubmit(e, product)}>
 
-            <Input obj={product} inputType={"name"} setObj={setProduct}/>
+            <Input obj={product} inputType={"name"} setObj={setProduct} />
+            <Input obj={product} inputType={"imgUrl"} setObj={setProduct} />
+            <Input obj={product} inputType={"desc"} setObj={setProduct} />
+            <Input obj={product} inputType={"stock"} setObj={setProduct} />
+            <Input obj={product} inputType={"isShowcase"} setObj={setProduct} />
+            <Input obj={product} inputType={"type"} setObj={setProduct} />
 
-            <div className="md:flex md:items-center mb-6">
-                <div className="md:w-1/3">
-                    <label className="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4">
-                        Image url:
-                    </label>
-                </div>
-                <div className="md:w-2/3">
-                    <input className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-logo" id="inline-email" type="text" value={product.imgUrl} onChange={(event) => setProduct({ ...product, imgUrl: event.target.value })} />
-                </div>
-            </div>
-
-            <div className="md:flex md:items-center mb-6">
-                <div className="md:w-1/3">
-                    <label className="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4">
-                        Description:
-                    </label>
-                </div>
-                <div className="md:w-2/3">
-                    <input className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-logo" id="inline-email" type="text" value={product.imgUrl} onChange={(event) => setProduct({ ...product, imgUrl: event.target.value })} />
-                </div>
-            </div>
+            {/* Something for the typespecific */}
+            {(() => {
+                switch (product.type) {
+                    case "PC":
+                        return renderTypeSpecificInputs(product.type, product.typeSpecific, setProduct); break;
+                    case "Laptop":
+                        return <Input obj={product.typeSpecific} inputType="gpu" setObj={setProduct} />;
+                    case "Keyboard":
+                        return <Input obj={product.typeSpecific} inputType="layout" setObj={setProduct} />;
+                    default:
+                        return null;
+                }
+            })()}
 
 
-            
+
+
+
+
 
 
             <div className="md:flex md:items-center">
@@ -72,6 +72,17 @@ async function handleSubmit(e: React.FormEvent<HTMLFormElement>, product: Produc
         console.error(error);
     }
 
+}
+
+function renderTypeSpecificInputs(type: any, typeSpecific : any, setObj: any) {
+   
+    return Object.keys(typeof typeSpecific).map((prop) => (
+        <Input
+            obj={typeSpecific}
+            inputType={prop}
+            setObj={setObj}
+        />
+    ));
 }
 
 /*
