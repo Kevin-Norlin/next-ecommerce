@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { SetStateAction, useState } from "react";
 import { ProductType, ProductType_Keyboard, ProductType_Laptop, ProductType_Mouse, ProductType_Mobile, ProductType_PC, ProductType_Tablet } from "@/utils/types/productTypes";
 import { IoIosCreate } from "react-icons/io";
 import { Input } from "../ui/Input";
@@ -8,6 +8,15 @@ import { Input } from "../ui/Input";
 function AddProductForm() {
     const [productType, setProductType] = useState("");
     const [product, setProduct] = useState<ProductType>({ name: "", imgUrl: "", desc: "", stock: 0, isShowcase: false, type: "Keyboard", typeSpecific: { connection: "USB", wireless: false, switches: "MX brown" } as ProductType_Keyboard });
+    // Doesnt work atm
+    const handleTypeChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        const value = event.target.value;
+        setProduct((prevProduct: SetStateAction<ProductType>) => ({
+          ...prevProduct,
+          type: value,
+        }));
+        setProductType(value);
+      };
     return (
         <form className="w-full max-w-sm " onSubmit={(e) => handleSubmit(e, product)}>
 
@@ -22,7 +31,8 @@ function AddProductForm() {
             {(() => {
                 switch (product.type) {
                     case "PC":
-                        return renderTypeSpecificInputs(product.type, product.typeSpecific, setProduct); break;
+                        /*return renderTypeSpecificInputs(product.type, product.typeSpecific, setProduct); break; */
+                        return <Input obj={product.typeSpecific} inputType="gpu" setObj={setProduct} />
                     case "Laptop":
                         return <Input obj={product.typeSpecific} inputType="gpu" setObj={setProduct} />;
                     case "Keyboard":
@@ -34,7 +44,7 @@ function AddProductForm() {
 
 
 
-
+            {product.type}
 
 
 
