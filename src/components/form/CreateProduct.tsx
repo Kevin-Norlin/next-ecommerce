@@ -6,17 +6,36 @@ import { Input } from "../ui/Input";
 
 
 function AddProductForm() {
-    const [productType, setProductType] = useState("");
-    const [product, setProduct] = useState<ProductType>({ name: "", imgUrl: "", desc: "", stock: 0, isShowcase: false, type: "Keyboard", typeSpecific: { connection: "USB", wireless: false, switches: "MX brown" } as ProductType_Keyboard });
+    const [typeSpecific, setTypeSpecific] = useState<any>({ connection: "USB", wireless: false, switches: "MX brown" });
+    const [product, setProduct] = useState<ProductType>({ name: "", imgUrl: "", desc: "", stock: 0, isShowcase: false, type: "Keyboard", typeSpecific: typeSpecific as ProductType_Keyboard });
     // Doesnt work atm
+    const handleTypeSpecific = (event: React.ChangeEvent<HTMLInputElement>) => {
+        if (!event.target) {
+            return;
+          }
+        const { name, value } = event.target;
+        // Change object
+        setTypeSpecific({...typeSpecific, [name]: value });
+        // Change object in product
+        setProduct({...product, typeSpecific: typeSpecific})
+    }
+
+    const handleProductChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        if (!event.target) {
+            return;
+        }
+        const {name, value} = event.target;
+        setProduct({...product, [name]: value})
+    }
+
     const handleTypeChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        const value = event.target.value;
-        setProduct((prevProduct: SetStateAction<ProductType>) => ({
-          ...prevProduct,
-          type: value,
-        }));
-        setProductType(value);
-      };
+        if (!event.target) {
+            return;
+          }
+        const {name, value} = event.target;
+        setProduct({...product, [name]: value});
+        setTypeSpecific({});
+    }
     return (
         <form className="w-full max-w-sm " onSubmit={(e) => handleSubmit(e, product)}>
 
@@ -25,26 +44,28 @@ function AddProductForm() {
             <Input obj={product} inputType={"desc"} setObj={setProduct} />
             <Input obj={product} inputType={"stock"} setObj={setProduct} />
             <Input obj={product} inputType={"isShowcase"} setObj={setProduct} />
-            <Input obj={product} inputType={"type"} setObj={setProduct} />
+            <Input obj={product} inputType={"type"} setObj={handleTypeChange} />
 
             {/* Something for the typespecific */}
             {(() => {
                 switch (product.type) {
                     case "PC":
                         /*return renderTypeSpecificInputs(product.type, product.typeSpecific, setProduct); break; */
-                        return <Input obj={product.typeSpecific} inputType="gpu" setObj={setProduct} />
+                        return <Input obj={typeSpecific} inputType="gpu" setObj={handleTypeSpecific} />
                     case "Laptop":
-                        return <Input obj={product.typeSpecific} inputType="gpu" setObj={setProduct} />;
+                        return <Input obj={typeSpecific} inputType="gpu" setObj={setProduct} />;
                     case "Keyboard":
-                        return <Input obj={product.typeSpecific} inputType="layout" setObj={setProduct} />;
+                        return <Input obj={typeSpecific} inputType="layout" setObj={setProduct} />;
                     default:
                         return null;
                 }
             })()}
 
+            
+            {product.typeSpecific?.gpu}
+            
 
-
-            {product.type}
+         
 
 
 
@@ -100,3 +121,4 @@ onChange={(event) => setProduct({ ...product, name: event.target.value })}
 */
 export default AddProductForm;
 
+//const user = useState({name: "", age: "", ageSpecific: {stamina: 2, health: "GOOD"}});
