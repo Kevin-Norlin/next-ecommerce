@@ -13,19 +13,19 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             .then(async () => {
                 const user = await UserModel.findOne({ email });
                 if (!user) {
-                    res.status(404).json({ Message: "No user found..." });
+                    res.status(404).json({ error: "Wrong email" });
                 }
                 else {
                     const validPassword = await bcrypt.compare(password, user.password);
                     if (validPassword) {
-                        res.status(200).json({ Message: "Valid credentials! " })
+                        res.status(200).json({ message: "Valid credentials! " })
                     }
                     else {
-                        res.status(401).json({ Message: "Wrong password or email..." })
+                        res.status(401).json({ error: "Wrong password" })
                     }
 
                 }
             })
-            .catch((error) => { res.status(500).json({ Error: error }) })
+            .catch((error) => { res.status(500).json({ error: error }) })
     }
 }

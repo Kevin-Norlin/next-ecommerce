@@ -16,13 +16,15 @@ function RegisterForm() {
                 },
                 body: JSON.stringify(user)
             });
+            const data = await response.json();
             if (!response.ok) {
-                throw new Error("Failed to create user...");
+                window.alert(data.error);
             }
-            console.log("User creted successfully!" + JSON.stringify(response));
+            else {window.alert(data.message) };
         }
         catch (error) {
             console.error(error);
+            
         }
 
     }
