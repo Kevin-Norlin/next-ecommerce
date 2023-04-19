@@ -15,10 +15,14 @@ function RegisterForm() {
                 },
                 body: JSON.stringify(user)
             });
+            const data = await response.json();
             if (!response.ok) {
-                throw new Error("Failed to validate user...");
+                window.alert(data.error);
             }
-            console.log("User validated successfully!" + JSON.stringify(response));
+            else {
+                window.alert(data.message);
+            }
+            
         }
         catch (error) {
             console.error(error);

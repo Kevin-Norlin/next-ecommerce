@@ -10,21 +10,21 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       const hashedPassword = await bcrypt.hash(password, 10);
       try {
          const conn = await connect();
-         const duplicate = await UserModel.findOne({ email: email });
+         const duplicate = await UserModel.findOne({ email: email.toLowerCase() });
          if (duplicate) {
             res.status(400).json({ Error: "User already exists" })
          }
-         const user = new UserModel({ email: email, password: hashedPassword });
+         const user = new UserModel({ email: email.toLowerCase(), password: hashedPassword });
          console.log(req.body);
          await user.save();
-         res.status(200).json({ Message: "User created" });
+         res.status(200).json({ message: "User created" });
       } catch (error) {
          console.error(error);
-         res.status(500).json({ Error: "Error storing in DB" });
+         res.status(500).json({ error: "Error storing in DB" });
       }
    }
    else {
-      res.status(405).json({ Message: "Only post allowed" });
+      res.status(405).json({ message: "Only post allowed" });
    }
 
 
