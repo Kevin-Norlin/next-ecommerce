@@ -40,11 +40,8 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 
 ## This project uses the following libraries: 
 - Nextjs
+- Next-auth
 - React
 - Mongoose with mongoDB
 - Bcrypt
-
-
-
-TODO :
-- Add boolean isShowcaseItem to product mongodb
+- React-icons
