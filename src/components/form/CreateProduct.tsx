@@ -1,75 +1,58 @@
 "use client";
 import { SetStateAction, useState } from "react";
-import { ProductType, ProductType_Keyboard, ProductType_Laptop, ProductType_Mouse, ProductType_Mobile, ProductType_PC, ProductType_Tablet } from "@/utils/types/productTypes";
+import { ProductType, ProductSpec, ProductSpecType_Keyboard, ProductSpecType_Laptop, ProductSpecType_Mouse, ProductSpecType_Mobile, ProductSpecType_PC, ProductSpecType_Tablet, getDefaultTypeSpecific } from "@/utils/types/productTypes";
 import { IoIosCreate } from "react-icons/io";
 import { Input } from "../ui/Input";
-
+import { Dropdown } from "../ui/Dropdown";
+import { TypeSpecForm } from "./TypeSpecForm";
+import { useEffect } from "react";
 
 function AddProductForm() {
-    const [typeSpecific, setTypeSpecific] = useState<any>({ connection: "USB", wireless: false, switches: "MX brown" });
-    const [product, setProduct] = useState<ProductType>({ name: "", imgUrl: "", desc: "", stock: 0, isShowcase: false, type: "Keyboard", typeSpecific: typeSpecific as ProductType_Keyboard });
-    // Doesnt work atm
-    const handleTypeSpecific = (event: React.ChangeEvent<HTMLInputElement>) => {
-        if (!event.target) {
-            return;
-          }
-        const { name, value } = event.target;
-        // Change object
-        setTypeSpecific({...typeSpecific, [name]: value });
-        // Change object in product
-        setProduct({...product, typeSpecific: typeSpecific})
-    }
-
-    const handleProductChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        if (!event.target) {
-            return;
+    const [typeSpecific, setTypeSpecific] = useState<ProductSpec>({ connection: "USB", wireless: false, switches: "MX brown" });
+    const [product, setProduct] = useState<ProductType>({ name: "", imgUrl: "", desc: "", stock: 0, isShowcase: false, type: "Keyboard", typeSpecific: typeSpecific });
+    
+    const updateProduct = (event: React.ChangeEvent<HTMLInputElement>) => {
+        const {name, value} = event.target;
+        // Sets Typespec to new default object uppon typechange in product
+        if (name === "type") {
+            switch(value) {
+                case "PC": setTypeSpecific(getDefaultTypeSpecific("PC")); break;
+                case "Laptop": setTypeSpecific(getDefaultTypeSpecific("Laptop")); break;
+                case "Mobile": setTypeSpecific(getDefaultTypeSpecific("Mobile")); break;
+                case "Tablet": setTypeSpecific(getDefaultTypeSpecific("Tablet")); break;
+                case "Mouse": setTypeSpecific(getDefaultTypeSpecific("Mouse")); break;
+            }
         }
-        const {name, value} = event.target;
-        setProduct({...product, [name]: value})
+        setProduct({...product,[name]: value} )
+        console.log("This is the typeSpecState: ")
+        console.log(product.typeSpecific)
     }
+    const updateTypeSpecific = ((event: React.ChangeEvent<HTMLInputElement>) => {
+        const {name, value} = event.target;
+        setTypeSpecific({...typeSpecific, [name]: value })
+    })
 
-    const handleTypeChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        if (!event.target) {
-            return;
-          }
-        const {name, value} = event.target;
-        setProduct({...product, [name]: value});
-        setTypeSpecific({});
-    }
+    useEffect(() => {
+        // Update typeSpec to product everytime the typeSpecific state changes
+        setProduct((prevProduct) => ({
+          ...prevProduct,
+          typeSpecific: typeSpecific,
+        }));
+        console.log(product.typeSpecific)
+      }, [typeSpecific]); 
+    
     return (
-        <form className="w-full max-w-sm " onSubmit={(e) => handleSubmit(e, product)}>
+        <div>
+        <form>
+        <Dropdown obj={product} inputType="type" handleChange={updateProduct} options={["PC", "Laptop", "Mobile", "Tablet", "Mouse"]} />
 
-            <Input obj={product} inputType={"name"} setObj={setProduct} />
-            <Input obj={product} inputType={"imgUrl"} setObj={setProduct} />
-            <Input obj={product} inputType={"desc"} setObj={setProduct} />
-            <Input obj={product} inputType={"stock"} setObj={setProduct} />
-            <Input obj={product} inputType={"isShowcase"} setObj={setProduct} />
-            <Input obj={product} inputType={"type"} setObj={handleTypeChange} />
+        {/* Renders a input element for each typespecific property */}
+        {Object?.keys(typeSpecific).map((key) => {
+            return <Input key={key} obj={typeSpecific} inputType={key} handleChange={updateTypeSpecific} />;
+        })}
 
-            {/* Something for the typespecific */}
-            {(() => {
-                switch (product.type) {
-                    case "PC":
-                        /*return renderTypeSpecificInputs(product.type, product.typeSpecific, setProduct); break; */
-                        return <Input obj={typeSpecific} inputType="gpu" setObj={handleTypeSpecific} />
-                    case "Laptop":
-                        return <Input obj={typeSpecific} inputType="gpu" setObj={setProduct} />;
-                    case "Keyboard":
-                        return <Input obj={typeSpecific} inputType="layout" setObj={setProduct} />;
-                    default:
-                        return null;
-                }
-            })()}
-
-            
-            {product.typeSpecific?.gpu}
-            
-
-         
-
-
-
-
+        {product.type} 
+        
             <div className="md:flex md:items-center">
                 <div className="md:w-1/3"></div>
                 <div className="md:w-2/3">
@@ -81,6 +64,7 @@ function AddProductForm() {
                 </div>
             </div>
         </form>
+        </div>
     );
 }
 
@@ -105,8 +89,8 @@ async function handleSubmit(e: React.FormEvent<HTMLFormElement>, product: Produc
 
 }
 
-function renderTypeSpecificInputs(type: any, typeSpecific : any, setObj: any) {
-   
+function renderTypeSpecificInputs(type: any, typeSpecific: any, setObj: any) {
+
     return Object.keys(typeof typeSpecific).map((prop) => (
         <Input
             obj={typeSpecific}

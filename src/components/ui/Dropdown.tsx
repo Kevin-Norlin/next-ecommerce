@@ -2,9 +2,10 @@ import { ProductType, ProductSpec, ProductSpecType_Keyboard, ProductSpecType_Lap
 interface InputProps {
     obj: any,
     inputType: string,
-    handleChange: Function
+    handleChange: Function,
+    options: string[]
 }
-export const Input = (props:InputProps) => {
+export const Dropdown = (props:InputProps) => {
     
     return (
         <div className="md:flex md:items-center mb-6">
@@ -14,13 +15,20 @@ export const Input = (props:InputProps) => {
                     </label>
                 </div>
                 <div className="md:w-2/3">
-                    <input className="bg-gray-200 appearance-none border-2 border-gray-200 rounded 
+                    <select className="bg-gray-200 appearance-none border-2 border-gray-200 rounded 
                                      w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none 
                                      focus:bg-white focus:border-logo" id="inline-full-name" 
-                                     type="text" name={props.inputType} value={(props.obj?.[props.inputType])?.toString()} 
+                                     name={props.inputType} value={(props.obj?.[props.inputType as keyof ProductType])?.toString()} 
                                      onChange={(event) => {
-                                    
-                                     props.handleChange(event)}} />
+                                     event.preventDefault(); 
+                                     props.handleChange(event)}} >
+                                        {props.options.map((option, index) => (
+                                            <option key={index} value={option}>
+                                             {option}
+                                            </option>
+  ))}
+
+                                     </select>
                 </div>
             </div>
     )
