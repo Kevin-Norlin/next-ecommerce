@@ -35,7 +35,7 @@ export const GlobalContext = createContext<GlobalContextI>(
 
 // Provider - not sure if im gonna use
 export const GlobalProvider = ({ children }: { children?: React.ReactNode }) => {
-    const [user, setUser] = useState<UserType>({name: "", email: "", password: "", roles: ["none"]});
+    const [user, setUser] = useState<UserType>({name: "", email: "", password: "", roles: ["none"], auth: false});
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [showCart, setCart] = useState(false);
