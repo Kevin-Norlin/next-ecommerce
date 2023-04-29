@@ -1,7 +1,9 @@
 import RegisterForm from "@/components/form/RegisterForm";
 import ValidateForm from "@/components/form/ValidateForm";
+import { useSession } from "next-auth/react";
 
 export default function Login() {
+    const {status, data} = useSession();
     return (
         <> 
         <div className="flex items-center justify-evenly flex-col w-screen h-screen gap-60 text-logo text-center  ">
@@ -13,7 +15,9 @@ export default function Login() {
             <h1 className="font-bold text-6xl text-center w-96  ">Log in!</h1>
                 <ValidateForm />
             </div>
-            
+            <div>
+                {status}
+            </div>
         </div>
         </>
     )
