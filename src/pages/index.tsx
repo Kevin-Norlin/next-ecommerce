@@ -23,7 +23,7 @@ export default function Index(props: any) {
   )
 }
 
-/*
+
 export async function getServerSideProps() {
   try {
     const res = await fetch("http://localhost:3000/api/getAll-product");
@@ -36,4 +36,3 @@ export async function getServerSideProps() {
   }
 
 }
-*/

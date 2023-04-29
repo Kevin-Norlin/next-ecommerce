@@ -15,33 +15,8 @@ function RegisterForm() {
             redirect: false
         });
         console.log(response);
-
     }
 
-    /*
-    const handleSubmit = async () => {
-        try {
-            const response = await fetch("api/validate-user", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify(userState)
-            });
-            const data = await response.json();
-            if (!response.ok) {
-                window.alert(data.error);
-            }
-            else {
-                window.alert(data.message);
-            }
-            
-        }
-        catch (error) {
-            console.error(error);
-        }
-    }
-    */
     const updateUser = (event: React.ChangeEvent<HTMLInputElement>) => {
         const {name, value} = event.target;
         setUser({...user, [name]: value});

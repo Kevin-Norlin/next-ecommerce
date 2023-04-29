@@ -1,9 +1,10 @@
 import RegisterForm from "@/components/form/RegisterForm";
 import ValidateForm from "@/components/form/ValidateForm";
 import { useSession } from "next-auth/react";
+import { useEffect } from "react";
 
 export default function Login() {
-    const {status, data} = useSession();
+    const {status, data : session} = useSession();
     return (
         <> 
         <div className="flex items-center justify-evenly flex-col w-screen h-screen text-logo text-center  ">
@@ -16,7 +17,8 @@ export default function Login() {
                 <ValidateForm />
             </div>
             <div>
-                {status}
+                {session?.user?.email}
+                
             </div>
         </div>
         </>
