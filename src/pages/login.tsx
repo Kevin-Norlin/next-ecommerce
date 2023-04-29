@@ -6,7 +6,7 @@ export default function Login() {
     const {status, data} = useSession();
     return (
         <> 
-        <div className="flex items-center justify-evenly flex-col w-screen h-screen gap-60 text-logo text-center  ">
+        <div className="flex items-center justify-evenly flex-col w-screen h-screen text-logo text-center  ">
             <div className="flex gap-40 ">
             <h1 className="font-bold text-6xl text-center w-96 ">Create a user!</h1>
                 <RegisterForm />

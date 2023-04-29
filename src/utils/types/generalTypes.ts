@@ -13,5 +13,6 @@ export interface ResponseFuncs {
     email: string;
     password: string;
     roles: [string];
+    auth: boolean;
   }
 

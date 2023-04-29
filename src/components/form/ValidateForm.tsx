@@ -26,7 +26,7 @@ function RegisterForm() {
                 headers: {
                     "Content-Type": "application/json"
                 },
-                body: JSON.stringify(user)
+                body: JSON.stringify(userState)
             });
             const data = await response.json();
             if (!response.ok) {
@@ -44,13 +44,13 @@ function RegisterForm() {
     */
     const updateUser = (event: React.ChangeEvent<HTMLInputElement>) => {
         const {name, value} = event.target;
-        setUser({...user, [name]: value});
+        setUserState({...userState, [name]: value});
     }
     return (
         
         <form className="w-full max-w-sm" onSubmit={handleSubmit}>
-           <Input obj={user} inputType="email" handleChange={updateUser} />
-           <Input obj={user} inputType="password" handleChange={updateUser} />
+           <Input obj={userState} inputType="email" handleChange={updateUser} />
+           <Input obj={userState} inputType="password" handleChange={updateUser} />
             <div className="md:flex md:items-center">
                 <div className="md:w-1/3"></div>
                 <div className="md:w-2/3">

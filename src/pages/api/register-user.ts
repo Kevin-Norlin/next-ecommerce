@@ -10,7 +10,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       const hashedPassword = await bcrypt.hash(password, 10);
       try {
          const conn = await connect();
-         const duplicate = await UserModel.findOne({ email: email.toLowerCase() });
+         const duplicate  = await UserModel.findOne({ email: email.toLowerCase() });
          if (duplicate) {
             res.status(400).json({ Error: "User already exists" })
          }
