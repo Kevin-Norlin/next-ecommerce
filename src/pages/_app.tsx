@@ -17,25 +17,40 @@ export default function App({ Component, pageProps }: AppProps) {
         <title>Ecommerce</title>
         <meta name="description" content="Eccomerce site built using NextJS" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+<<<<<<< HEAD
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+      
+      <SessionProvider session={pageProps.session}>
+      <GlobalProvider>
+        <div className="flex  flex-col flex-wrap justify-baseline items-center min-h-screen max-h-max w-screen bg-main ">
+=======
         <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link rel="preconnect" href="https://fonts.gstatic.com"  />
             <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,400;0,700;0,900;1,400&display=swap" rel="stylesheet" />
             <link rel="icon" href="/favicon.ico" />
           </Head>
+>>>>>>> 22871e7521b627ac67d9a0461d7839aee8d94986
 
-          <SessionProvider session={pageProps.session}>
-      <GlobalProvider>
+          <GlobalProvider>
             <div className="flex  flex-col flex-wrap justify-baseline items-center  w-screen bg-main ">
 
-          <Header />
-          <NavBar />
-          
-        
-        <Component {...pageProps} />
-        <Footer />
+              <Header />
+              <NavBar />
+
+
+              <Component {...pageProps} />
+              <Footer />
+            </div>
+          </GlobalProvider>
         </div>
+<<<<<<< HEAD
       </GlobalProvider>
+      </SessionProvider>
     </div>
   );
+=======
+        );
+>>>>>>> 22871e7521b627ac67d9a0461d7839aee8d94986
 }
 // GlobalProvider aint right... i think it works though                                                                                                                        
