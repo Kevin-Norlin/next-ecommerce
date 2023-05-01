@@ -18,7 +18,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                 else {
                     const validPassword = await bcrypt.compare(password, user.password);
                     if (validPassword) {
-                        res.status(200).json({ message: "Valid credentials! " })
+                        res.status(200).json({ message: "Valid credentials! ", id: user._id }) // Also returns id of user
                     }
                     else {
                         res.status(401).json({ error: "Wrong password" })

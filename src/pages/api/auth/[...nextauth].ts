@@ -34,7 +34,8 @@ export const authOptions: NextAuthOptions = {
             return null;
           }
           else {
-            return data;
+            const id = data.id;
+            return {email, password, id};
           };
         }
         catch (error) {

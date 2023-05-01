@@ -4,7 +4,11 @@ import { useSession } from "next-auth/react";
 import { useEffect } from "react";
 
 export default function Login() {
+    
     const {status, data : session} = useSession();
+    useEffect(() => {
+        console.log(session?.user)
+    },[])
     return (
         <> 
         <div className="flex items-center justify-evenly flex-col w-screen h-screen text-logo text-center  ">
@@ -17,7 +21,7 @@ export default function Login() {
                 <ValidateForm />
             </div>
             <div>
-                {session?.user?.email}
+                
                 
             </div>
         </div>
