@@ -7,6 +7,7 @@ export interface ProductType {
     isShowcase: boolean,
     type: string,//"PC" | "Screen" | "Tablet" | "Laptop" | "Mobile" | "Mouse" | "Keyboard", //Might change to just string...
     typeSpecific: ProductSpec;
+    
 }
 
 export type ProductSpec = ProductSpecType_Laptop | ProductSpecType_Mobile | ProductSpecType_PC | ProductSpecType_Tablet | ProductSpecType_Mouse | ProductSpecType_Keyboard;

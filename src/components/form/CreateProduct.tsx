@@ -8,6 +8,27 @@ import { Dropdown } from "../ui/Dropdown";
 import { useEffect } from "react";
 
 function AddProductForm() {
+
+    async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+        e.preventDefault();
+        try {
+            const response = await fetch("api/post-product", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(product)
+            });
+            if (!response.ok) {
+                throw new Error("Failed to create user...");
+            }
+            console.log("Product creted successfully!" + JSON.stringify(response));
+        }
+        catch (error) {
+            console.error(error);
+        }
+
+    }
     const [typeSpecific, setTypeSpecific] = useState<ProductSpec>(getDefaultTypeSpecific("PC"));
     const [product, setProduct] = useState<ProductType>({ name: "", imgUrl: "", desc: "", stock: 0, isShowcase: false, type: "Keyboard", typeSpecific: typeSpecific });
 
@@ -46,10 +67,10 @@ function AddProductForm() {
     }, [typeSpecific]);
 
     return (
-        <div>
-            <form>
+        <div >
+            <form onSubmit={handleSubmit} >
 
-            <h1 className="text-logo text-xl p-10 text-center"> Base information</h1>
+                <h1 className="text-logo text-xl p-10 text-center"> Base information</h1>
                 {Object?.keys(product).map((key) => {
                     if (key !== "type" && key !== "typeSpecific") return <Input key={key} obj={product} inputType={key} handleChange={updateProduct} />;
                 })}
@@ -60,36 +81,17 @@ function AddProductForm() {
                 {Object?.keys(typeSpecific).map((key) => {
                     return <Input key={key} obj={typeSpecific} inputType={key} handleChange={updateTypeSpecific} />;
                 })}
-                        <div className="flex flex-row items-center justify-center p-10 gap-2 hover: cursor-pointer ">
-                            <h1 className="font-bold text-center">Add product</h1>
-                            <button type="submit" />
-                            <IoIosCreate className="" size="40" />
-                        </div> 
+                
+                    <button type="submit" className="flex flex-row h-10 w-full m-0 items-center justify-center p-10 gap-2 hover: cursor-pointer">
+                    <h1 className="font-bold text-center">Add product</h1>
+                    <IoIosCreate className="" size="40" />
+                    </button>
+                
             </form>
         </div>
     );
 }
 
-async function handleSubmit(e: React.FormEvent<HTMLFormElement>, product: ProductType) {
-    e.preventDefault();
-    try {
-        const response = await fetch("api/post-product", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(product)
-        });
-        if (!response.ok) {
-            throw new Error("Failed to create user...");
-        }
-        console.log("Product creted successfully!" + JSON.stringify(response));
-    }
-    catch (error) {
-        console.error(error);
-    }
-
-}
 
 export default AddProductForm;
 
