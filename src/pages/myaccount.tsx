@@ -1,4 +1,5 @@
 import CreateProduct from "@/components/form/CreateProduct";
+import UpdateProduct from "@/components/form/UpdateProduct";
 import { GlobalContext } from "@/hooks/context/global";
 import { useSession } from "next-auth/react";
 import { useContext, useState } from "react";
@@ -14,6 +15,8 @@ export default function myAccount() {
              <button className="hover:cursor-pointer flex gap-5" onClick={() => setShow(!show)}> Add product  <BsDatabaseFillAdd /> </button>
             
             {session?.user && show && <CreateProduct />}
+            
+            {session?.user && show && <h1> Update product </h1> && <UpdateProduct />}
             
         </div>
     )

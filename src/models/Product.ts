@@ -8,6 +8,7 @@ const ProductSchema = new mongoose.Schema({
     stock: Number,
     isShowcase: Boolean,
     type: String,
+    price: Number,
     typeSpecific: Object
   });
   

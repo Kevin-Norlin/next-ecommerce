@@ -5,7 +5,8 @@ export interface ProductType {
     desc: string,
     stock: number,
     isShowcase: boolean,
-    type: string,//"PC" | "Screen" | "Tablet" | "Laptop" | "Mobile" | "Mouse" | "Keyboard", //Might change to just string...
+    type: string,
+    price: number,
     typeSpecific: ProductSpec;
     
 }
@@ -70,6 +71,7 @@ export interface ProductSpecType_Keyboard extends ProductSpecType {
 type ProductCategory = "Laptop" | "Mobile" | "Tablet" | "PC" | "Mouse" | "Keyboard";
 
 export const getDefaultTypeSpecific = (productCategory: ProductCategory): ProductSpec => {
+  
   switch (productCategory) {
     case "Laptop":
     case "Mobile":
@@ -107,6 +109,13 @@ export const getDefaultTypeSpecific = (productCategory: ProductCategory): Produc
         switches: "",
       };
     default:
+      
       return {} as ProductSpec;
-  }
+    }
 };
+
+export const getDefaultProduct = (): ProductType => {
+  return {
+    name: "", imgUrl: "", desc: "", stock: 0, isShowcase: false, type: "", price: 0, typeSpecific: {} as ProductSpec
+}
+}

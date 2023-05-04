@@ -30,7 +30,7 @@ function AddProductForm() {
 
     }
     const [typeSpecific, setTypeSpecific] = useState<ProductSpec>(getDefaultTypeSpecific("PC"));
-    const [product, setProduct] = useState<ProductType>({ name: "", imgUrl: "", desc: "", stock: 0, isShowcase: false, type: "Keyboard", typeSpecific: typeSpecific });
+    const [product, setProduct] = useState<ProductType>({ name: "", imgUrl: "", desc: "", stock: 0, isShowcase: false, type: "Keyboard", price: 0, typeSpecific: typeSpecific });
 
     const updateProduct = (event: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = event.target;
@@ -42,6 +42,7 @@ function AddProductForm() {
                 case "Mobile": setTypeSpecific(getDefaultTypeSpecific("Mobile")); break;
                 case "Tablet": setTypeSpecific(getDefaultTypeSpecific("Tablet")); break;
                 case "Mouse": setTypeSpecific(getDefaultTypeSpecific("Mouse")); break;
+                
             }
         }
         setProduct({ ...product, [name]: value })
@@ -81,12 +82,12 @@ function AddProductForm() {
                 {Object?.keys(typeSpecific).map((key) => {
                     return <Input key={key} obj={typeSpecific} inputType={key} handleChange={updateTypeSpecific} />;
                 })}
-                
-                    <button type="submit" className="flex flex-row h-10 w-full m-0 items-center justify-center p-10 gap-2 hover: cursor-pointer">
+
+                <button type="submit" className="flex flex-row h-10 w-full m-0 items-center justify-center p-10 gap-2 hover: cursor-pointer">
                     <h1 className="font-bold text-center">Add product</h1>
                     <IoIosCreate className="" size="40" />
-                    </button>
-                
+                </button>
+
             </form>
         </div>
     );
