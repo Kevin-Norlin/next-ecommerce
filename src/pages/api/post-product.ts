@@ -11,7 +11,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       try {
          const conn = await connect();
          const product = new ProductModel(req.body); 
-         console.log("This is the product: " + req.body); 
+         console.log("This is the product: " + req.body.price); 
          product.save();
          res.status(201).send("Product stored in DB");
       }

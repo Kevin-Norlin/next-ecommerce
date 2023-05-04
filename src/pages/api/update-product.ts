@@ -7,14 +7,14 @@ import { ProductModel } from "../../models/Product";
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
     if (req.method === "PUT") {
         const data = req.body;
-        const name = data.name;
+        let name = data.name;
         console.log(name);
         if (!name) {
             throw new Error("Include name in request");
         }
         // Array of the attributes to be updated
         const update = Object.entries(data).map(entry => {
-            if (entry[1] === "") {
+            if (entry[1] === "" || entry[0] === "typeSpecific") {
                 return undefined;
             }
             else {
@@ -27,12 +27,12 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             update.map(async entry => {
                 let doc = await ProductModel.findOneAndUpdate(name, entry);
             })
-            res.status(200).json({ message: "Product updated successfully" })
-            console.log("Product updated successfully")
+            res.status(200).json({ message: "Product updated successfully" });
+            console.log("Product updated successfully");
         }
         catch (error) {
             res.status(400).json({ error: "Something went wrong updating proudct" });
-            console.log("Something went wrong updating proudct")
+            console.log("Something went wrong updating proudct"); 
         }
     }
 }
