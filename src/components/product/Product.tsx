@@ -7,7 +7,7 @@ export const Product: React.FC<ProductType> = (props: ProductType) => {
     const [hovering, setHovering] = useState(false);
     return (
         <div onMouseEnter={() => setHovering(true)} onMouseLeave={() => setHovering(false)} key={props.name}
-            className={`rounded-xl flex flex-col jusify-baseline items-center basis10 gap-5 p-10 ${hovering ? "absolute z-100 h-fit w-96" : "w-96 h-96"}
+            className={`rounded-xl flex flex-col jusify-baseline items-center basis10 gap-5 p-10 ${hovering ? "h-fit w-96" : "w-96 h-96"}
             shadow-2xl hover:scale-110 cursor-pointer transition-all`}>
             <h3 className="font-bold">{props.name}</h3>
             <div className="w-64 h-64 flex items-center justify-center">
