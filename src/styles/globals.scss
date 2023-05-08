@@ -11,12 +11,7 @@
   --footer-bg: #D7D9D7;
 }
 
-@layer components {
-  .example {
-    @apply relative flex items-center jusitfy-center;
 
-  }
-}
 
 body {
   font-family: 'Nunito Sans', sans-serif;
