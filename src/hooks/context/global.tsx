@@ -14,6 +14,8 @@ interface GlobalContextI {
     setNavBar: (showNavBar: boolean) => void;
     toggleCart: () => void;
     toggleNavBar: () => void;
+    search: string,
+    setSearch: (search: string) => void;
 }
 
 // Global context used all over the application
@@ -29,7 +31,9 @@ export const GlobalContext = createContext<GlobalContextI>(
         showNavBar: false,
         setNavBar: () => { },
         toggleCart: () => { },
-        toggleNavBar: () => { }
+        toggleNavBar: () => { },
+        search: "",
+        setSearch: () => { }
 
     }
 )
@@ -41,10 +45,11 @@ export const GlobalProvider = ({ children }: { children?: React.ReactNode }) => 
     const [email, setEmail] = useState("");
     const [showCart, setCart] = useState(false);
     const [showNavBar, setNavBar] = useState(false);
+    const [search, setSearch] = useState("");
     const toggleCart = () => setCart(!showCart);
     const toggleNavBar = () => setNavBar(!showNavBar);
     return (
-        <GlobalContext.Provider value={{ name, setName, email, setEmail, showCart, setCart, showNavBar, setNavBar, toggleCart, toggleNavBar, user }}>
+        <GlobalContext.Provider value={{ name, setName, email, setEmail, showCart, setCart, showNavBar, setNavBar, toggleCart, toggleNavBar, user, search, setSearch }}>
           {children}
         </GlobalContext.Provider>
       );
