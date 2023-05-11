@@ -32,13 +32,11 @@ export const NavBar = () => {
         className=" fixed top-0 right-0 z-20 flex flex-col justify-baseline items-center gap-10 h-screen w-auto shadow-xl text-logo text-4xl font-bold bg-main pt-20">
 
             <FaTimes className="right-2 top-2 absolute bg-red hover:cursor-pointer"onClick={toggleNavBar} />
-            <FiUser className="right-14 top-2 absolute bg-red hover:cursor-pointer text-black " />
+            <Link href={status === "authenticated" ? "/myaccount" : "/login"} onClick={toggleNavBar}><FiUser className="right-14 top-2 absolute bg-red hover:cursor-pointer text-black " color={status === "authenticated" ? "green" : "red" } /></Link>
 
             <div className="flex flex-col justify-baseline p-20 items-center gap-10 right-0 h-screen w-full 
                             shadow-xl text-logo text-4xl font-bold">
             <Link href="/" className="NavBar-link" onClick={toggleNavBar}> Home </Link>
-            <Link href="/login" className="NavBar-link" onClick={toggleNavBar}> Log in </Link>
-            <Link href="/myaccount" className="NavBar-link" onClick={toggleNavBar}> My Account</Link>
             <Link href="/shop" className="NavBar-link" onClick={toggleNavBar} > Shop </Link>
             </div>
         </motion.div>

@@ -41,7 +41,7 @@ function RegisterForm() {
                         <h1 className="font-bold">Log in</h1>
                         <IoIosLogIn className="" size="40" />
                     </button>
-                    <button onClick={ ()=> (signOut())}> Sign out </button>
+                    
                 </div>
             </div>
         </form>
