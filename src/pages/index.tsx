@@ -9,8 +9,7 @@ export default function Index(props: any) {
 
       <div className="flex h-screen w-screen items-center flex-col">
         <div className="text-8xl font-extrabold text-logo ">
-          <h1 >This is an e-shop.</h1>
-          <h1>Buy Something..</h1>
+          
         </div>
         <div className='w-screen h-fit flex flex-row  justify-evenly m-10 '>
           <MainPageBox text1="Spring sale" text2="Up to 60% off!" imgUrl="/images/index/home1.jpg" />

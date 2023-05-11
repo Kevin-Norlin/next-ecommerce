@@ -4,8 +4,10 @@ import { IoIosLogIn } from "react-icons/io";
 import { UserType } from "@/utils/types/generalTypes";
 import { Input } from "../ui/Input";
 import { signIn, signOut } from "next-auth/react";
+import { useRouter } from "next/router";
 
 function RegisterForm() {
+    const router = useRouter();
     const [user, setUser] = useState<UserType>({ name: "", email: "", password: "", roles: ["default"] });
     const handleSubmit: FormEventHandler<HTMLFormElement> = async (e) => {
         e.preventDefault();
@@ -14,7 +16,13 @@ function RegisterForm() {
             password: user.password,
             redirect: false
         });
-        console.log(response);
+        if ( !response?.error) {
+            window.alert("You are logged in");
+            router.push("/myaccount");
+        }
+        else {
+            window.alert("Wrong email or password...")
+        }
     }
 
     const updateUser = (event: React.ChangeEvent<HTMLInputElement>) => {
