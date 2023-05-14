@@ -15,11 +15,11 @@ export const Header = () => {
             <div className="">
                 <h1 className="text-logo text-4xl font-bold">E-commerce</h1>
             </div>
-            <div className="flex flex-row justify-between items-center gap-20">
+            <div className="flex flex-row justify-between items-center gap-10">
                 <h3 className="">{name}</h3>
-                <FaShoppingCart className="hover:cursor-pointer"size="38" onClick={toggleCart} />
+                <FaShoppingCart className="hover:cursor-pointer"size="34" onClick={toggleCart} />
 
-                <FaBars className="hover:cursor-pointer"size="38" onClick={toggleNavBar} />
+                <FaBars className="hover:cursor-pointer"size="34" onClick={toggleNavBar} />
                 
             </div>
         </div>

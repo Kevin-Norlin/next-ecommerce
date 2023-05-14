@@ -37,7 +37,7 @@ function RegisterForm() {
             <div className="md:flex md:items-center ">
                 <div className="md:w-1/3"></div>
                 <div className="md:w-2/3 flex md:items-center md:justify-center">
-                    <button type="submit" className="flex flex-row items-center w-fit justify-center gap-2 hover: cursor-pointer">
+                <button type="submit"className="flex self gap-2 bg-blue-500 items-center hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full ">
                         <h1 className="font-bold">Log in</h1>
                         <IoIosLogIn className="" size="40" />
                     </button>

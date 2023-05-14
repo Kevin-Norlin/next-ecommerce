@@ -4,10 +4,12 @@ import { useSession, signOut } from "next-auth/react";
 import {  useState } from "react";
 import { BsDatabaseFillAdd } from "react-icons/bs"; 
 import { useRouter } from "next/router";
+import { Profile } from "@/components/pageComponents/Profile";
 
 export default function myAccount() {
     const router = useRouter();
-    const [ show, setShow ] = useState(false);
+    const [ showAdd, setShowAdd ] = useState(false);
+    const [ showUpdate, setShowUpdate ] = useState(false); 
     const {data: session, status } = useSession({
         required: true,
         onUnauthenticated() {
@@ -22,13 +24,11 @@ export default function myAccount() {
     
     return (
         <div className="flex items-center flex-col gap-5 min-h-screen">
-            <h1 className="text-logo text-4xl"> Signed in as: {session?.user?.email} </h1>
-            <button onClick={ ()=> (signOut())}> Sign out </button>
-             <button className="hover:cursor-pointer flex gap-5" onClick={() => setShow(!show)}> Add product  <BsDatabaseFillAdd /> </button>
+            <Profile showAdd={showAdd} setShowAdd={setShowAdd} showUpdate={showUpdate} setShowUpdate={setShowUpdate} />
             
-            {show && <CreateProduct />}
+            {showAdd && <CreateProduct />}
             
-            {show && <h1> Update product </h1> && <UpdateProduct />}
+            {showUpdate && <h1> Update product </h1> && <UpdateProduct />}
             
         </div>
     )

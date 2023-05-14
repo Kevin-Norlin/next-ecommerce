@@ -3,7 +3,7 @@ import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import {useEffect, useContext} from "react";
 import { FaTimes, FaUserCircle } from "react-icons/fa";
-import { FiUser } from "react-icons/fi";
+import { FiUser, FiUserCheck } from "react-icons/fi";
 import { GlobalContext } from "@/hooks/context/global";
 import { useSession } from "next-auth/react";
 
@@ -32,7 +32,14 @@ export const NavBar = () => {
         className=" fixed top-0 right-0 z-20 flex flex-col justify-baseline items-center gap-10 h-screen w-auto shadow-xl text-logo text-4xl font-bold bg-main pt-20">
 
             <FaTimes className="right-2 top-2 absolute bg-red hover:cursor-pointer"onClick={toggleNavBar} />
-            <Link href={status === "authenticated" ? "/myaccount" : "/login"} onClick={toggleNavBar}><FiUser className="right-14 top-2 absolute bg-red hover:cursor-pointer text-black " color={status === "authenticated" ? "green" : "red" } /></Link>
+            <Link href={status === "authenticated" ? "/myaccount" : "/login"} onClick={toggleNavBar}> 
+                { status === "authenticated" ?
+                <FiUserCheck className="right-14 top-2 absolute bg-red hover:cursor-pointer text-black " />
+                :
+                <FiUser className="right-14 top-2 absolute bg-red hover:cursor-pointer text-black " />
+                
+                }
+                </Link>
 
             <div className="flex flex-col justify-baseline p-20 items-center gap-10 right-0 h-screen w-full 
                             shadow-xl text-logo text-4xl font-bold">

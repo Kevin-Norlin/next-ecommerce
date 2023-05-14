@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Input } from "../ui/Input";
 import { ProductType, getDefaultProduct } from "@/utils/types/productTypes";
+import { BsDatabaseFillGear } from "react-icons/bs";
 
 
 function updateProductForm() {
@@ -33,19 +34,24 @@ function updateProductForm() {
     }
     return (
         <div>
+            <h1 className="text-logo text-xl p-10 text-center"> Change product</h1>
             <form onSubmit={handleSubmit}>
-            <Input obj={product} key="name" inputType="name" handleChange={(handleChange)} />
-            <Input obj={product} key="desc" inputType="desc" handleChange={(handleChange)} />
-            <Input obj={product} key="imgUrl" inputType="imgUrl" handleChange={(handleChange)} />
-            <Input obj={product} key="stock" inputType="stock" handleChange={(handleChange)} />
-            <Input obj={product} key="isShowcase" inputType="isShowcase" handleChange={(handleChange)} />
-            <Input obj={product} key="type" inputType="type" handleChange={(handleChange)} />
-            <Input obj={product} key="price" inputType="price" handleChange={(handleChange)} />
-            {/* Add ability to change typeSpecific attributes later */}
-            <button type="submit"> Submit </button>
+                <Input obj={product} key="name" inputType="name" handleChange={(handleChange)} />
+                <Input obj={product} key="desc" inputType="desc" handleChange={(handleChange)} />
+                <Input obj={product} key="imgUrl" inputType="imgUrl" handleChange={(handleChange)} />
+                <Input obj={product} key="stock" inputType="stock" handleChange={(handleChange)} />
+                <Input obj={product} key="isShowcase" inputType="isShowcase" handleChange={(handleChange)} />
+                <Input obj={product} key="type" inputType="type" handleChange={(handleChange)} />
+                <Input obj={product} key="price" inputType="price" handleChange={(handleChange)} />
+                {/* Add ability to change typeSpecific attributes later */}
+                <div className="flex justify-center p-10">
+                    <button type="submit" className="flex self gap-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full ">
+                        Submit product  <BsDatabaseFillGear />
+                    </button>
+                </div>
             </form>
         </div>
-        
+
     )
 }
 /*
