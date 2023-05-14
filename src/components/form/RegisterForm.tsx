@@ -42,7 +42,7 @@ function RegisterForm() {
                 <div className="md:flex md:items-center">
                     <div className="md:w-1/3"></div>
                     <div className="md:w-2/3">
-                        <div className="flex flex-row items-center justify-center gap-2 hover: cursor-pointer " onClick={handleSubmit}>
+                        <div className="flex flex-row items-center justify-center gap-2 hover: cursor-pointer" onClick={handleSubmit}>
                             <h1 className="font-bold">Register</h1>
                             <IoIosCreate className="" size="40" />
                         </div>

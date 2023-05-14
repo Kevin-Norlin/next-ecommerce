@@ -34,10 +34,10 @@ function RegisterForm() {
         <form className="w-full max-w-sm" onSubmit={handleSubmit}>
            <Input obj={user} inputType="email" handleChange={updateUser} />
            <Input obj={user} inputType="password" handleChange={updateUser} />
-            <div className="md:flex md:items-center">
+            <div className="md:flex md:items-center ">
                 <div className="md:w-1/3"></div>
-                <div className="md:w-2/3">
-                    <button type="submit" className="flex flex-row items-center justify-center gap-2 hover: cursor-pointer ">
+                <div className="md:w-2/3 flex md:items-center md:justify-center">
+                    <button type="submit" className="flex flex-row items-center w-fit justify-center gap-2 hover: cursor-pointer">
                         <h1 className="font-bold">Log in</h1>
                         <IoIosLogIn className="" size="40" />
                     </button>
