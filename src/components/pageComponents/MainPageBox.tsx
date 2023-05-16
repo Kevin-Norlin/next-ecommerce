@@ -1,5 +1,3 @@
-import Image from "next/image"
-
 interface BoxProps {
     text1: string,
     text2: string,

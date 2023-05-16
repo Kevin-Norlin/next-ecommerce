@@ -2,7 +2,6 @@ import CreateProduct from "@/components/form/CreateProduct";
 import UpdateProduct from "@/components/form/UpdateProduct";
 import { useSession, signOut } from "next-auth/react";
 import {  useState } from "react";
-import { BsDatabaseFillAdd } from "react-icons/bs"; 
 import { useRouter } from "next/router";
 import { Profile } from "@/components/pageComponents/Profile";
 

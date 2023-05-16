@@ -3,7 +3,7 @@ import { FormEventHandler, useState } from "react";
 import { IoIosLogIn } from "react-icons/io";
 import { UserType } from "@/utils/types/generalTypes";
 import { Input } from "../ui/Input";
-import { signIn, signOut } from "next-auth/react";
+import { signIn } from "next-auth/react";
 import { useRouter } from "next/router";
 
 function RegisterForm() {

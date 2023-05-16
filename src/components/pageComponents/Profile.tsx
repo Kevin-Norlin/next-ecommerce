@@ -1,6 +1,5 @@
 
 import { useSession, signOut } from "next-auth/react";
-import { useState } from "react";
 import { BsDatabaseFillAdd, BsDatabaseFillGear } from "react-icons/bs";
 import { firstToUpper } from "@/utils/functions/stringfunctions";
 import { VscSignOut } from "react-icons/vsc";

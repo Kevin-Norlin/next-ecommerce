@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { ProductType } from "@/utils/types/productTypes";
 import { Product } from "../product/Product";
 import { GlobalContext } from "@/hooks/context/global";
