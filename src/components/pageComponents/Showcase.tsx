@@ -28,7 +28,7 @@ export const Showcase: React.FC<ShowcaseProps> = (props) => {
         setItems(wrapSlice(showcaseProducts, index, (index + 4) % showcaseProducts.length));
     }
     const handleNextClick = () => {
-        if (index + 4 >= showcaseProducts.length -1) {
+        if (index + 4 > showcaseProducts.length -1) {
             setIndex(0);
         } else {
             setIndex(index + 4);
@@ -38,6 +38,7 @@ export const Showcase: React.FC<ShowcaseProps> = (props) => {
     }
     useEffect(() => {
         console.log(items);
+        console.log("and this is the filtered: " + showcaseProducts.length)
     })
     return (
         <div className="flex justify-center flex-col items-center gap-20 flex-wrap w-screen">

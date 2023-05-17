@@ -23,7 +23,6 @@ export const Product: React.FC<ProductType> = (props: ProductType) => {
             setHovering(false);
         }
     }
-
     return (
         <div onClick={() => setClicked(!clicked)} onMouseEnter={handleEnterHovering} onMouseLeave={handleLeaveHovering} key={props.name}
             className={`rounded-xl flex flex-col bg-main jusify-baseline 

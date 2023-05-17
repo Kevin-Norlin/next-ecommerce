@@ -11,10 +11,10 @@ export const Products: React.FC<ShowcaseProps> = ({ products }) => {
     const {search} = useContext(GlobalContext);
     return (
         <div className=" w-screen h-screen">
-        <div className="flex justify-evenly m- items-baseline basis-0 flex-wrap">
+        <div className="flex justify-between gap-10 p-6 items-baseline flex-wrap">
             {products.filter((item: ProductType) => (item.name.toLowerCase().startsWith(search.toLowerCase()))).map((item: ProductType, index: number) => (
                 
-                <div  key= {index}>
+                <div className="" key= {index}>
                 <Product name={item.name} imgUrl={item.imgUrl} desc={item.desc} stock={item.stock} isShowcase={item.isShowcase} type={item.type} typeSpecific={item.typeSpecific} price={item.price} />
                 </div>
             ))}
