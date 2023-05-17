@@ -1,6 +1,7 @@
 import { ProductType } from "@/utils/types/productTypes";
 import { Product } from "../product/Product";
-import { useState, useEffect } from "react"
+import { useState, useEffect } from "react";
+import {BsArrowRightCircle, BsArrowLeftCircle} from "react-icons/bs";
 
 
 interface ShowcaseProps {
@@ -41,26 +42,23 @@ export const Showcase: React.FC<ShowcaseProps> = (props) => {
         console.log("and this is the filtered: " + showcaseProducts.length)
     })
     return (
-        <div className="flex justify-center flex-col items-center gap-20 flex-wrap w-screen">
-            <div>
-                {items.length}
-                {"index:"} {index}
+        <div className="relative flex justify-center flex-col items-center gap-20 flex-wrap w-screen">
+            <div className="absolute top-48 left-4 hover:scale-125 transition-all">
                 <button onClick={handlePrevClick}>
-                    PREV
+                    <BsArrowLeftCircle size={24} />
                 </button>
             </div>
             <div className="flex flex-row gap-6">
                 {items.map((item: ProductType, index: number) => (
-
                     item.isShowcase &&
                     <div key={index}>
                         <Product name={item.name} imgUrl={item.imgUrl} desc={item.desc} stock={item.stock} isShowcase={item.isShowcase} price={item.price} type={item.type} typeSpecific={item.typeSpecific} />
                     </div>
                 ))}
             </div>
-            <div>
-                <button onClick={handleNextClick}>
-                    NEXT
+            <div className="absolute top-48 right-4 hover:scale-125 transition-all">
+                <button className=""onClick={handleNextClick}>
+                    <BsArrowRightCircle size={24} />
                 </button>
             </div>
         </div>
