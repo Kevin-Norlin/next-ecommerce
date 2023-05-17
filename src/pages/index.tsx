@@ -16,6 +16,9 @@ export default function Index(props: any) {
           <MainPageBox text1="" text2="" imgUrl="/images/index/home2.jpg" />
           <MainPageBox text1="" text2="" imgUrl="/images/index/home3.jpg" />
         </div>
+        <div>
+          <Showcase products={props.products}/>
+        </div>
       </div>
       <FrameWorks />
     </>

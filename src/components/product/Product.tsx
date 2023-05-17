@@ -30,12 +30,12 @@ export const Product: React.FC<ProductType> = (props: ProductType) => {
             items-center basis10 gap-5 p-10 
             ${clicked ? "h-full w-fill absolute p-40 z-100 top-20 left-0 right-0" : "w-96 h-96"}
             shadow-2xl transition-all ${hovering && "scale-110 cursor-pointer"}`}>
-                <div className="absolute bg-red-500 right-20 top-30">
+            <div className="absolute bg-red-500 right-20 top-30">
                 {clicked && <AiOutlineFullscreenExit />}
-                </div>
+            </div>
             <h3 className="font-bold">{props.name}</h3>
-            <div className="w-64 h-64 flex items-center justify-center">
-                <img className="bg-red" src={props.imgUrl} alt={props.name} width={200}  />
+            <div className="w-64 h-64 flex overflow-hidden items-center justify-center">
+                <img className=" max-h-44" src={props.imgUrl} alt={props.name} width={160} />
             </div>
             {clicked && <p>{props.desc}</p>}
             {clicked && (Object?.keys(props.typeSpecific).map((key) => {

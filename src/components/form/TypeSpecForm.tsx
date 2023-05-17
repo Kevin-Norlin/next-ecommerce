@@ -6,5 +6,14 @@ import { Input } from "../ui/Input";
 import { Dropdown } from "../ui/Dropdown";
 import { useEffect } from "react";
 
-export const TypeSpecForm = (props:any) => {
+export const TypeSpecForm = (props: any) => {
+    return (
+        <div>
+            {/* Renders a input element for each typespecific property */}
+            <h1 className="text-logo text-xl p-10 text-center"> Technical specs</h1>
+            {Object?.keys(props.typeSpecific).map((key) => {
+                return <Input key={key} obj={props.typeSpecific} inputType={key} handleChange={props.updateTypeSpecific} />;
+            })}
+        </div>
+    )
 }
