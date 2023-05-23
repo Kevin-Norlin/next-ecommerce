@@ -39,7 +39,7 @@ export const Showcase: React.FC<ShowcaseProps> = (props) => {
     }
     useEffect(() => {
         console.log(items);
-        console.log("and this is the filtered: " + showcaseProducts.length)
+        console.log("and these are the filtered: " + showcaseProducts.length)
     })
     return (
         <div className="relative flex justify-center flex-col items-center gap-20 flex-wrap w-screen">
