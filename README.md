@@ -14,10 +14,10 @@ This E-commerce React application represents my effort to explore the world of R
 
 ## Pictures
 
-![Homepage](/path/to/homepage-screenshot.png)
+![Homepage](public/readme/homepage.png)
 _Homepage of the E-commerce Application_
 
-![Admin Product Modification](/path/to/admin-product-modification-screenshot.png)
+![Admin Product Modification](public/readme/addproduct.png)
 _Admin user modifying products in the application_
 
 ## Technologies Used
