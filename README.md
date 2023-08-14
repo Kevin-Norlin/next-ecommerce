@@ -1,7 +1,3 @@
-# E-commerce React Application Readme
-
-## Introduction
-
 This E-commerce React application represents my effort to explore the world of React libraries and databases. It aims to provide users with a basic shopping experience, offering features such as user account creation, login, and shopping cart functionality. As a learning project, it uses Next.js for front-end development, NextAuth.js for authentication, React for user interfaces, and MongoDB with Mongoose for database management.
 
 ## Features
@@ -14,3 +10,4 @@ This E-commerce React application represents my effort to explore the world of R
 - **Product Details:** Users can view detailed information about individual products.
 - **Payment:** **Note:** Payment processing is not supported in the current version.
 - **Responsive Design:** The application is designed to work smoothly on various devices and screen sizes.
+- **Encryption:** Before the user-data is stored in the database it is hashed with a salt added using BCrypt.
